@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hui Shun</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto Sans:300,500,700" rel="stylesheet">
+    <link href="animations.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+                sans-serif;
+            font-size: calc(10px + 0.3vw);
+            -webkit-font-smoothing: antialiased;
+            padding: 5vh 10vw;
+            color: #d4dbe2;
+            background-color: #121314;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-size: 4.5em;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 1.6em;
+            font-weight: 300;
+            line-height: 1.55;
+            max-width: 28em;
+        }
+
+        a {
+            text-decoration: none;
+            white-space: nowrap;
+            color: rgb(135, 189, 228);
+            position: relative;
+            padding: 2px 0;
+        }
+
+        a:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 70%;
+            left: -0.1em;
+            right: -0.1em;
+            bottom: 0.1em;
+            transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1), background-position 750ms linear;
+            background-image: linear-gradient(60deg, rgba(200, 82, 255, 0.622) 0%, rgba(65, 176, 255, 0.60) 100%);
+            background-position: 100% 0;
+            background-size: 400% 100%;
+        }
+
+        a:hover {
+            color: #d4dbe2;
+            cursor: pointer;
+        }
+
+        a:hover:after {
+            top: 0.1em;
+            background-position: 0%;
+        }
+
+        a object {
+            pointer-events: none;
+            margin-bottom: -2.5px;
+            width: calc(13px + 0.7vw);
+            height: calc(13px + 0.7vw);
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex;">
+        <h1 class="wave">👋🏻</h1>
+        <div style="display: inline-block;">
+            <h1 class="typed-out" style="--steps: 6; --typing-animation: typing-1; --appear-animation: appear-1">Hello
+            </h1>
+        </div>
+        <div style="display: inline-block;">
+            <h1 class="typed-out" style="--steps: 2; --typing-animation: typing-2; --appear-animation: appear-2">哈喽
+            </h1>
+        </div>
+        <div style="display: inline-block;">
+            <h1 class="typed-out" style="--steps: 2; --typing-animation: typing-3; --appear-animation: appear-3">안녕
+            </h1>
+        </div>
+    </div>
+
+    <p>
+        My name is <span style="font-weight: 500; color: orange">Hui Shun</span>, and I am a DevOps engineer from
+        Singapore 🇸🇬.
+    </p>
+    <p>
+        I am the creator of <a href="https://t.me/cron_telebot" style="font-weight: 500" target="_blank">RM
+            Bot</a> (@cron_telebot), the first ever
+        recurring message scheduler on Telegram, benefitting <span id="usercount"
+            style="transition: opacity .5s ease-in-out">many</span> (and growing) users all
+        around the world. I share the
+        <a href="https://github.com/hsdevelops/rm-bot" target="_blank">code for this bot</a> and many
+        other open source projects on <a href="https://github.com/huishun98" target="_blank"><object
+                data="assets/github.svg"> </object> GitHub</a>, feel free to contribute to them!
+    </p>
+    <p>
+        If you're interested to find out more, please contact me at <a href="mailto:huishun98@gmail.com"
+            target="_blank">huishun98@gmail.com</a>. You can also find me on <a
+            href="https://www.linkedin.com/in/hui-shun/" target="_blank"><object data="assets/linkedin.svg"> </object>
+            LinkedIn</a> and <a href="https://medium.com/@huishun" target="_blank"><object data="assets/medium.svg">
+            </object> Medium</a>, where I document my #techjourney.
+    </p>
+
+    <script>
+        window.onload = function () {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    var usercount = document.getElementById("usercount");
+                    usercount.style.opacity = 0;
+
+                    setTimeout(function () {
+                        usercount.innerHTML = JSON.parse(xmlHttp.responseText).userCount;
+                        usercount.style.opacity = 1;
+                    }, 500)
+                }
+            }
+            xmlHttp.open("GET", "https://script.google.com/macros/s/AKfycbxfWY-UL87-ExDR6GmeFK1VyaOOp4CVo4wmV5_27CCgbH5te5wp_Ek8oqMroFp2_9pE/exec", true);
+            xmlHttp.send();
+        }
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,148 @@
+.wave {
+    margin-right: 20px;
+    animation-name: wave-animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: rotate(8.0deg)
+    }
+
+    5% {
+        transform: rotate(14.0deg)
+    }
+
+    10% {
+        transform: rotate(-14.0deg)
+    }
+
+    15% {
+        transform: rotate(18.0deg)
+    }
+
+    20% {
+        transform: rotate(-8.0deg)
+    }
+
+    25% {
+        transform: rotate(18.0deg)
+    }
+
+    30% {
+        transform: rotate(-6.0deg)
+    }
+
+    35% {
+        transform: rotate(10.0deg)
+    }
+
+    40% {
+        transform: rotate(8.0deg)
+    }
+
+    100% {
+        transform: rotate(8.0deg)
+    }
+}
+
+.typed-out {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: var(--typing-animation) 10s steps(var(--steps), end) infinite forwards, var(--appear-animation) 10s steps(1, end) infinite forwards;
+    width: 0;
+    display: flex;
+}
+
+@keyframes appear-1 {
+    0% {
+        opacity: 1;
+        border-right: .15em solid #d4dbe2;
+    }
+
+    33% {
+        opacity: 0;
+        border-right: none;
+    }
+}
+
+@keyframes appear-2 {
+    33% {
+        opacity: 1;
+        border-right: .15em solid #d4dbe2;
+    }
+
+    66% {
+        opacity: 0;
+        border-right: none;
+    }
+}
+
+@keyframes appear-3 {
+    0% {
+        opacity: 0;
+        border-right: none;
+    }
+
+    66% {
+        opacity: 1;
+        border-right: .15em solid #d4dbe2;
+    }
+}
+
+@keyframes typing-1 {
+    0% {
+        width: 0;
+    }
+
+    3% {
+        width: 100%;
+    }
+
+    30% {
+        width: 100%;
+    }
+
+    33% {
+        width: 0;
+    }
+}
+
+@keyframes typing-2 {
+    33% {
+        width: 0
+    }
+
+    36% {
+        width: 100%;
+    }
+
+    63% {
+        width: 100%;
+    }
+
+    66% {
+        width: 0
+    }
+}
+
+@keyframes typing-3 {
+    66% {
+        width: 0
+    }
+
+    69% {
+        width: 100%;
+    }
+
+    97% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0
+    }
+}
