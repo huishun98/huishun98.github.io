@@ -116,6 +116,7 @@
 
     <script>
         window.onload = function () {
+            const url = "https://script.google.com/macros/s/AKfycbxncTj9b9Ur0DsYB4Eh6oS5cfs6z-TBlqW7tI_qsjgxw9WuDyxJ3QUrciQ255EtFzbX/exec"
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
@@ -128,7 +129,7 @@
                     }, 500)
                 }
             }
-            xmlHttp.open("GET", "https://script.google.com/macros/s/AKfycbxfWY-UL87-ExDR6GmeFK1VyaOOp4CVo4wmV5_27CCgbH5te5wp_Ek8oqMroFp2_9pE/exec", true);
+            xmlHttp.open("GET", url, true);
             xmlHttp.send();
         }
     </script>
