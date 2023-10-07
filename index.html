@@ -93,14 +93,14 @@
     </div>
 
     <p>
-        My name is <span style="font-weight: 500; color: orange">Hui Shun</span>, and I am a DevOps engineer from
+        My name is <span style="font-weight: 500; color: orange">Hui Shun</span>, and I am a software engineer from
         Singapore 🇸🇬.
     </p>
     <p>
-        I am the creator of <a href="https://t.me/cron_telebot" style="font-weight: 500" target="_blank">RM
-            Bot</a> (@cron_telebot), the first ever
+        I am the creator of <a href="https://t.me/cron_telebot" style="font-weight: 500" target="_blank">Recurring
+            Messages</a> (@cron_telebot), the first ever
         recurring message scheduler on Telegram, benefitting <span id="usercount"
-            style="transition: opacity .5s ease-in-out">many</span> (and growing) users all
+            style="transition: opacity .5s ease-in-out">many</span> users from all
         around the world. I share the
         <a href="https://github.com/hsdevelops/rm-bot" target="_blank">code for this bot</a> and many
         other open source projects on <a href="https://github.com/huishun98" target="_blank"><object
@@ -116,7 +116,7 @@
 
     <script>
         window.onload = function () {
-            const url = "https://script.google.com/macros/s/AKfycbxncTj9b9Ur0DsYB4Eh6oS5cfs6z-TBlqW7tI_qsjgxw9WuDyxJ3QUrciQ255EtFzbX/exec"
+            const url = "https://api-hs-develops.koyeb.app/cron-telebot-metrics"
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange = function () {
                 if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
@@ -124,7 +124,9 @@
                     usercount.style.opacity = 0;
 
                     setTimeout(function () {
-                        usercount.innerHTML = JSON.parse(xmlHttp.responseText).userCount;
+                        const resp = JSON.parse(xmlHttp.responseText)
+                        const val = resp.user_count?.toLocaleString("en-US")
+                        usercount.innerHTML = `est. ${val}`;
                         usercount.style.opacity = 1;
                     }, 500)
                 }
@@ -135,6 +137,5 @@
     </script>
 
 </body>
-
 
 </html>
